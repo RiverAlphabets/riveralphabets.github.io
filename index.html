@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>River Alphabets</title>
+  <title>A River Alphabet</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+
   <style>
 
-    /* ── Colour palette ──────────────────────────────── */
+    /* ── Colour palette: Tasmanian river landscapes ── */
     :root {
-      --sand:   #F2E8D0;   /* warm background      */
-      --earth:  #1C160E;   /* near-black text       */
-      --ochre:  #B87333;   /* copper/ochre accent   */
-      --sage:   #7A8C6E;   /* eucalyptus sage       */
-      --dust:   #9A8F7C;   /* muted secondary text  */
-      --warm:   #4A4035;   /* body paragraph text   */
+      --mist:       #E3EDEA;
+      --gorge:      #111A17;
+      --tannin:     #1F4A3F;
+      --fern:       #527A5F;
+      --schist:     #7A8E86;
+      --understory: #2E4A39;
     }
 
-    /* ── Reset ───────────────────────────────────────── */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ── Base ────────────────────────────────────────── */
+    /* ── Base ── */
     body {
-      background-color: var(--sand);
-      color: var(--earth);
+      background-color: var(--mist);
+      color: var(--gorge);
       font-family: 'Jost', sans-serif;
       font-weight: 300;
       font-size: 1rem;
@@ -37,130 +35,304 @@
       min-height: 100vh;
     }
 
-    /* ── Page container ──────────────────────────────── */
+    /* ── Page container ── */
     .page {
       max-width: 680px;
       margin: 0 auto;
       padding: 4rem 2rem 6rem;
     }
 
-    /* ── Header: name + nav ──────────────────────────── */
-    header {
-      margin-bottom: 3rem;
-    }
+    /* ── Header ── */
+    header { margin-bottom: 3rem; }
 
-    /* Your name — large, elegant, with italic accent */
     .site-name {
       font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
       font-weight: 300;
       font-size: clamp(2.5rem, 8vw, 4.5rem);
       letter-spacing: 0.02em;
       line-height: 1.1;
-      color: var(--earth);
     }
+    .site-name em { font-style: italic; color: var(--tannin); }
 
-    /* The italic part of your name renders in ochre 
-    .site-name em {
-      font-style: italic;
-      color: var(--ochre);
-    }*/
-
-    /* ── Navigation ──────────────────────────────────── */
-    nav {
-      margin-top: 1.5rem;
-      display: flex;
-      gap: 2rem;
-    }
-
+    nav { margin-top: 1.5rem; display: flex; gap: 2rem; }
     nav a {
-      font-family: 'Jost', sans-serif;
-      font-weight: 300;
       font-size: 0.82rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--dust);
+      color: var(--schist);
       text-decoration: none;
       transition: color 0.2s ease;
     }
+    nav a:hover, nav a.active { color: var(--tannin); }
 
-    nav a:hover,
-    nav a.active {
-      color: var(--ochre);
-    }
+    /* ── Divider ── */
+    .divider { width: 3rem; height: 1px; background-color: var(--tannin); margin: 3rem 0; }
 
-    /* ── Ochre rule / divider ────────────────────────── */
-    .divider {
-      width: 3rem;
-      height: 1px;
-      background-color: var(--ochre);
-      margin: 3rem 0;
-    }
-
-    /* ── Section label (small caps style) ───────────── */
+    /* ── Section label ── */
     .section-label {
       font-size: 0.72rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--sage);
+      color: var(--fern);
       margin-bottom: 1.25rem;
     }
 
-    /* ── Lead / intro sentence ───────────────────────── */
-    /* This is the punchy one-liner at the top of the bio */
+    /* ── Intro sentence ── */
     .intro-text {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 400;
       font-size: clamp(1.25rem, 3vw, 1.65rem);
       line-height: 1.55;
-      color: var(--earth);
+      color: var(--gorge);
       margin-bottom: 2rem;
     }
 
-    /* ── Body paragraphs ─────────────────────────────── */
-    .body-text {
-      font-size: 1rem;
-      line-height: 1.9;
-      color: var(--warm);
+    /* ── Body text ── */
+    .body-text { font-size: 1rem; line-height: 1.9; color: var(--understory); }
+    .body-text p + p { margin-top: 1.25rem; }
+
+
+    /* ════════════════════════════════════════════════════
+       PROFILE IMAGE
+       A single image displayed beneath the intro text.
+       Uses <figure> and <figcaption> for proper semantics.
+    ════════════════════════════════════════════════════ */
+
+    .profile-figure {
+      /*
+        <figure> is a semantic HTML5 element for self-contained media —
+        images, diagrams, code snippets — that is referenced from the
+        main content. We apply styles to it via this class.
+      */
+      margin: 2.5rem 0;
+      /*
+        Margin above and below creates breathing room between the
+        bio text and the image.
+      */
     }
 
-    .body-text p + p {
-      margin-top: 1.25rem;
+    .profile-figure img {
+      /*
+        Targets the <img> element inside .profile-figure.
+        CSS lets you chain selectors like this to be specific about
+        which images you're styling (you might have other images later).
+      */
+      width: 100%;
+      /*
+        Makes the image stretch to fill its container (the .page column).
+        Without this, an image renders at its actual pixel dimensions,
+        which may be far wider than the page.
+      */
+      max-height: 420px;
+      /*
+        Caps the image height so very tall portrait photos don't dominate
+        the page. Adjust this value to your preference.
+      */
+      object-fit: cover;
+      /*
+        When we constrain both width AND height, the image's proportions
+        may not match the box we've defined. object-fit: cover tells the
+        browser to scale and crop the image to fill the box completely,
+        preserving its aspect ratio and never distorting it.
+        Think of it like background-size: cover, but for <img> elements.
+        The image is cropped from the centre by default.
+      */
+      display: block;
+      /*
+        Images are "inline" elements by default, which can create a small
+        gap below them (because inline elements sit on a text baseline).
+        display: block removes this gap.
+      */
     }
 
-    /* ── Footer ──────────────────────────────────────── */
+    .profile-figure figcaption {
+      /*
+        <figcaption> is the semantic element for an image caption.
+        It must be a direct child of <figure>.
+        Screen readers associate it with the image automatically.
+      */
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      color: var(--schist);
+      letter-spacing: 0.04em;
+      font-style: italic;
+      /*
+        A subtle italic caption in schist-grey keeps the image grounded
+        without competing with the body text.
+      */
+    }
+
+
+    /* ════════════════════════════════════════════════════
+       GALLERY
+       A responsive grid of multiple images.
+       To use: add or remove <figure> blocks inside .gallery.
+    ════════════════════════════════════════════════════ */
+
+    .gallery-section {
+      margin-top: 3.5rem;
+      /*
+        Separates the gallery from the bio section above.
+        Using margin-top on the section (rather than margin-bottom on the
+        bio) keeps each section responsible for its own spacing.
+      */
+    }
+
+    .gallery {
+      display: grid;
+      /*
+        CSS Grid is a two-dimensional layout system.
+        It's ideal for image galleries because it handles rows and columns
+        simultaneously, unlike Flexbox which is primarily one-dimensional.
+      */
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      /*
+        This is the key responsive grid rule — it does a lot:
+        - repeat(auto-fill, ...) : create as many columns as will fit
+        - minmax(180px, 1fr)     : each column is at least 180px wide,
+                                   but expands equally to fill available space
+        Result: on wide screens you get 3 columns; on a phone you get 1 or 2.
+        No media queries needed — the grid adapts automatically.
+        EDIT: Change 180px to adjust the minimum column width.
+      */
+      gap: 0.75rem;
+      /*
+        gap sets the space between ALL grid cells (both rows and columns).
+        You can also write gap: row-gap column-gap separately if needed.
+      */
+      margin-top: 1.5rem;
+    }
+
+    .gallery figure {
+      /*
+        Each image in the gallery is wrapped in its own <figure>.
+        margin: 0 removes any default browser margin on <figure>.
+      */
+      margin: 0;
+    }
+
+    .gallery figure img {
+      width: 100%;
+      height: 200px;
+      /*
+        A fixed height makes all gallery images the same size,
+        giving the grid a uniform, intentional look.
+        EDIT: Change 200px to make images taller or shorter.
+      */
+      object-fit: cover;
+      display: block;
+      /*
+        Same reasoning as the profile image above:
+        object-fit: cover fills the box without distortion.
+        display: block removes the inline baseline gap.
+      */
+      transition: opacity 0.25s ease;
+      /*
+        On hover, we'll lower the opacity slightly (see below).
+        The transition makes this a smooth fade rather than an instant change.
+      */
+    }
+
+    .gallery figure img:hover {
+      opacity: 0.85;
+      /*
+        A subtle dimming on hover signals the image is interactive —
+        useful if you later decide to link images to larger versions.
+        The effect is gentle enough not to distract.
+      */
+    }
+
+    .gallery figure figcaption {
+      margin-top: 0.4rem;
+      font-size: 0.72rem;
+      color: var(--schist);
+      letter-spacing: 0.03em;
+    }
+
+
+    /* ════════════════════════════════════════════════════
+       SOCIAL LINKS
+       Icon links to external profiles.
+       Placed in the footer for a clean, unobtrusive position.
+    ════════════════════════════════════════════════════ */
+
+    .social-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+      /*
+        align-items: center vertically centres the icons within the flex row,
+        which matters if they have slightly different heights.
+      */
+      margin-bottom: 1.25rem;
+    }
+
+    .social-links a {
+      /*
+        Each social link is an <a> wrapping an inline SVG icon.
+      */
+      color: var(--schist);
+      /*
+        SVG icons inherit their fill colour from the parent element's
+        "color" property when fill="currentColor" is set on the SVG.
+        This means we only need to change color: here to recolour the icon.
+      */
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: flex;
+      /*
+        display: flex on the <a> itself centres the SVG icon inside it
+        precisely, removing any whitespace artefacts.
+      */
+    }
+
+    .social-links a:hover { color: var(--tannin); }
+
+    .social-links svg {
+      width: 20px;
+      height: 20px;
+      /*
+        Always set explicit dimensions on inline SVGs.
+        Without them, SVGs can render at unexpected sizes
+        because they default to their internal viewBox dimensions.
+      */
+      fill: currentColor;
+      /*
+        currentColor is a special CSS keyword that means
+        "use whatever color value is on this element or inherited from its parent."
+        Combined with color: var(--schist) on the parent <a>,
+        this means all SVG shapes inside fill with schist-grey,
+        and change to tannin on hover — without any extra CSS.
+      */
+    }
+
+    /* ── Footer ── */
     footer {
       margin-top: 6rem;
       padding-top: 2rem;
-      border-top: 1px solid rgba(28, 22, 14, 0.12);
+      border-top: 1px solid rgba(17, 26, 23, 0.12);
       font-size: 0.78rem;
-      color: var(--dust);
+      color: var(--schist);
       letter-spacing: 0.06em;
     }
 
   </style>
 </head>
+
 <body>
   <div class="page">
 
     <!-- ── Header ── -->
     <header>
-      <!--
-        EDIT: Replace "Your" and "Name" with your actual first and last name.
-        The <em> tag makes the last name italic and ochre-coloured.
-        You can remove <em> if you'd prefer both names to look the same.
-      -->
-      <h1 class="site-name">River Alphabet</h1>
-
+      <h1 class="site-name">A River<em>Alphabet</em></h1>
+      <!-- EDIT: Replace with your name. Remove <em> if you want uniform styling. -->
       <nav>
-        <!-- Add or remove links here as your site grows -->
         <a href="index.html" class="active">About</a>
         <a href="blog.html">Blog</a>
         <a href="projects.html">Projects</a>
       </nav>
     </header>
 
-    <!-- ── Ochre divider line ── -->
     <div class="divider"></div>
 
     <!-- ── Main content ── -->
@@ -168,45 +340,238 @@
 
       <p class="section-label">About</p>
 
-      <!--
-        EDIT: Replace this with a short, punchy sentence that captures
-        who you are — something you'd say if you had ten seconds.
-      -->
       <p class="intro-text">
-        A short, memorable sentence that tells visitors exactly who you are
+        A short, memorable sentence that tells visitors who you are
         and what you care about.
       </p>
+      <!-- EDIT: Replace with your personal hook sentence. -->
 
       <div class="body-text">
-        <!--
-          EDIT: Write 1–3 paragraphs about yourself here.
-          The first paragraph is a great place for your background —
-          where you're from, what you do, and what drives you.
-        -->
         <p>
-          This is where your introduction goes. Write a few sentences about yourself —
-          your background, what you do, and what drives you. Keep it warm and personal,
-          as though you're writing to someone you've just met.
+          This is where your introduction goes. Write a few sentences about
+          yourself — your background, what you do, and what drives you.
         </p>
-
-        <!--
-          EDIT: Use this second paragraph to explain what this website is about.
-          What will you be writing in the blog? What projects will you share?
-          Give visitors a reason to come back.
-        -->
         <p>
-          This second paragraph is a great place to explain what this website is about —
-          what you will be writing in the blog, what kinds of projects you will be sharing,
-          and what you hope visitors will take away. Give people a reason to stick around.
+          This second paragraph is a good place to explain what this website
+          is about — what you will write, what you will share, and why
+          visitors should come back.
         </p>
+        <!-- EDIT: Replace both paragraphs with your actual bio text. -->
       </div>
+
+
+      <!-- ════════════════════════════════════════════════
+           PROFILE IMAGE
+           A single image displayed below the bio text.
+
+           HOW TO USE:
+           1. Create a folder called "images" in your GitHub repository,
+              in the same location as this index.html file.
+           2. Upload your photo into that folder.
+           3. Replace "images/your-photo.jpg" in src="" below with the
+              actual filename (e.g. src="images/profile.jpg").
+
+           FILE ORGANISATION TIP:
+           Keeping images in a subfolder (images/) rather than the root
+           folder is good practice — it keeps your repository tidy.
+           Your file structure will look like:
+             index.html
+             images/
+               your-photo.jpg
+               gallery-1.jpg
+               gallery-2.jpg
+      ═══════════════════════════════════════════════════ -->
+
+      <figure class="profile-figure">
+        <img
+          src="images/your-photo.jpg"
+          alt="A description of the photo — e.g. Your Name standing on the bank of the Franklin River."
+        >
+        <!--
+          The <img> element is self-closing (no </img> needed).
+          It has two essential attributes:
+
+          src="..." — the file path to your image.
+            Paths are relative to THIS HTML file's location.
+            "images/your-photo.jpg" means: look in the "images" subfolder
+            next to this file. If your photo is in the same folder as
+            index.html, you'd write src="your-photo.jpg" instead.
+
+          alt="..." — alternative text describing the image.
+            This is IMPORTANT for:
+            - Screen readers (used by visually impaired visitors)
+            - Search engines (they can't "see" images)
+            - When the image fails to load (shown as text instead)
+            Write a genuine description of what's in the photo.
+            EDIT: Replace the alt text with an accurate description.
+        -->
+        <figcaption>
+          Your caption here — location, year, or a short note.
+          <!-- EDIT: Replace with your own caption, or delete this line
+               (and the figcaption tags) if you don't want a caption. -->
+        </figcaption>
+      </figure>
+
+
+      <!-- ════════════════════════════════════════════════
+           PHOTO GALLERY
+           A responsive grid of multiple images.
+
+           HOW TO USE:
+           - Replace each src="images/gallery-N.jpg" with your actual image paths.
+           - Add more <figure> blocks by copying and pasting the template below.
+           - Remove <figure> blocks you don't need (the grid adjusts automatically).
+           - If you don't want captions, delete the <figcaption> tags.
+
+           HIDING THE GALLERY:
+           If you want this page to only show a single profile image for now,
+           you can comment out the entire gallery section by wrapping it like:
+             <!-- your content here - -  >   (remove the spaces around the dashes)
+      ═══════════════════════════════════════════════════ -->
+
+      <section class="gallery-section">
+        <!--
+          <section> is a semantic element for a thematically grouped block
+          of content. Unlike <div>, it implies meaningful structure.
+          Use <section> when the content has its own heading or clear identity
+          within the page. A gallery is a good candidate.
+        -->
+
+        <p class="section-label">Gallery</p>
+
+        <div class="gallery">
+          <!--
+            Each image in the gallery follows this pattern:
+            <figure>
+              <img src="..." alt="...">
+              <figcaption>...</figcaption>  ← optional
+            </figure>
+
+            EDIT: Replace each src and alt with your actual images.
+            Add or remove <figure> blocks freely — the grid adjusts.
+          -->
+
+          <figure>
+            <img
+              src="images/gallery-1.jpg"
+              alt="Describe what is in this photo."
+            >
+            <figcaption>Caption one</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="images/gallery-2.jpg"
+              alt="Describe what is in this photo."
+            >
+            <figcaption>Caption two</figcaption>
+          </figure>
+
+          <figure>
+            <img
+              src="images/gallery-3.jpg"
+              alt="Describe what is in this photo."
+            >
+            <figcaption>Caption three</figcaption>
+          </figure>
+
+          <!-- Copy and paste a <figure> block here to add more images. -->
+
+        </div>
+      </section>
 
     </main>
 
-    <!-- ── Footer ── -->
+
+    <!-- ── Footer ─────────────────────────────────────────
+         The footer contains two things:
+         1. Social media icon links
+         2. Copyright notice
+         They're stacked vertically inside the footer element.
+    ─────────────────────────────────────────────────────── -->
     <footer>
-      <!-- EDIT: Replace "Your Name" with your name -->
-      <p>© 2026 Rory Taylor</p>
+
+      <!-- ════════════════════════════════════════════════
+           SOCIAL LINKS
+           Each link follows this pattern:
+             <a href="YOUR_PROFILE_URL" aria-label="Platform name">
+               [SVG icon]
+             </a>
+
+           aria-label="..." is an ACCESSIBILITY attribute.
+           Because these links contain only an icon (no visible text),
+           screen readers have nothing to read aloud. aria-label provides
+           a text label that is announced instead (e.g. "GitHub profile").
+           Always include it on icon-only links.
+
+           EDIT: Replace each href="#" with your actual profile URL.
+           Delete any platforms you don't use.
+      ═══════════════════════════════════════════════════ -->
+
+      <div class="social-links">
+
+        <!-- GitHub -->
+        <a href="https://github.com/yourusername" aria-label="GitHub profile" target="_blank" rel="noopener noreferrer">
+          <!--
+            target="_blank" opens the link in a new browser tab.
+            This is conventional for external links — visitors don't
+            leave your site, they just open the destination alongside it.
+
+            rel="noopener noreferrer" is a SECURITY attribute that should
+            always accompany target="_blank". Without it, the opened page
+            can access and potentially manipulate your page via JavaScript.
+            "noopener" blocks that access; "noreferrer" additionally hides
+            the referring URL from the destination site.
+
+            EDIT: Replace "yourusername" with your actual GitHub username.
+          -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!--
+              aria-hidden="true" hides the SVG from screen readers.
+              The accessible name comes from the parent <a>'s aria-label,
+              so the icon itself doesn't need to be announced separately.
+              Without this, screen readers may announce "svg" or read out
+              all the path data — neither is useful.
+            -->
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/yourusername" aria-label="LinkedIn profile" target="_blank" rel="noopener noreferrer">
+          <!-- EDIT: Replace "yourusername" with your LinkedIn profile handle. -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://instagram.com/yourusername" aria-label="Instagram profile" target="_blank" rel="noopener noreferrer">
+          <!-- EDIT: Replace "yourusername" with your Instagram handle. -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:you@example.com" aria-label="Send me an email">
+          <!--
+            mailto: links open the visitor's default email app with your
+            address pre-filled. No target="_blank" needed — the email
+            client opens separately regardless.
+            EDIT: Replace "you@example.com" with your actual email address.
+          -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </a>
+
+      </div>
+      <!-- End .social-links -->
+
+      <p>© 2026 Your Name</p>
+      <!-- EDIT: Replace "Your Name" with your actual name. -->
+
     </footer>
 
   </div>
