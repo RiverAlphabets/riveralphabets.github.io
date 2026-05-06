@@ -1,2 +1,213 @@
-# riveralphabets.github.io
-# test test test 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+
+    /* ── Colour palette ──────────────────────────────── */
+    :root {
+      --sand:   #F2E8D0;   /* warm background      */
+      --earth:  #1C160E;   /* near-black text       */
+      --ochre:  #B87333;   /* copper/ochre accent   */
+      --sage:   #7A8C6E;   /* eucalyptus sage       */
+      --dust:   #9A8F7C;   /* muted secondary text  */
+      --warm:   #4A4035;   /* body paragraph text   */
+    }
+
+    /* ── Reset ───────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Base ────────────────────────────────────────── */
+    body {
+      background-color: var(--sand);
+      color: var(--earth);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ── Page container ──────────────────────────────── */
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* ── Header: name + nav ──────────────────────────── */
+    header {
+      margin-bottom: 3rem;
+    }
+
+    /* Your name — large, elegant, with italic accent */
+    .site-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      color: var(--earth);
+    }
+
+    /* The italic part of your name renders in ochre */
+    .site-name em {
+      font-style: italic;
+      color: var(--ochre);
+    }
+
+    /* ── Navigation ──────────────────────────────────── */
+    nav {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dust);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--ochre);
+    }
+
+    /* ── Ochre rule / divider ────────────────────────── */
+    .divider {
+      width: 3rem;
+      height: 1px;
+      background-color: var(--ochre);
+      margin: 3rem 0;
+    }
+
+    /* ── Section label (small caps style) ───────────── */
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Lead / intro sentence ───────────────────────── */
+    /* This is the punchy one-liner at the top of the bio */
+    .intro-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(1.25rem, 3vw, 1.65rem);
+      line-height: 1.55;
+      color: var(--earth);
+      margin-bottom: 2rem;
+    }
+
+    /* ── Body paragraphs ─────────────────────────────── */
+    .body-text {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--warm);
+    }
+
+    .body-text p + p {
+      margin-top: 1.25rem;
+    }
+
+    /* ── Footer ──────────────────────────────────────── */
+    footer {
+      margin-top: 6rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(28, 22, 14, 0.12);
+      font-size: 0.78rem;
+      color: var(--dust);
+      letter-spacing: 0.06em;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ── Header ── -->
+    <header>
+      <!--
+        EDIT: Replace "Your" and "Name" with your actual first and last name.
+        The <em> tag makes the last name italic and ochre-coloured.
+        You can remove <em> if you'd prefer both names to look the same.
+      -->
+      <h1 class="site-name">Your <em>Name</em></h1>
+
+      <nav>
+        <!-- Add or remove links here as your site grows -->
+        <a href="index.html" class="active">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="projects.html">Projects</a>
+      </nav>
+    </header>
+
+    <!-- ── Ochre divider line ── -->
+    <div class="divider"></div>
+
+    <!-- ── Main content ── -->
+    <main>
+
+      <p class="section-label">About me</p>
+
+      <!--
+        EDIT: Replace this with a short, punchy sentence that captures
+        who you are — something you'd say if you had ten seconds.
+      -->
+      <p class="intro-text">
+        A short, memorable sentence that tells visitors exactly who you are
+        and what you care about.
+      </p>
+
+      <div class="body-text">
+        <!--
+          EDIT: Write 1–3 paragraphs about yourself here.
+          The first paragraph is a great place for your background —
+          where you're from, what you do, and what drives you.
+        -->
+        <p>
+          This is where your introduction goes. Write a few sentences about yourself —
+          your background, what you do, and what drives you. Keep it warm and personal,
+          as though you're writing to someone you've just met.
+        </p>
+
+        <!--
+          EDIT: Use this second paragraph to explain what this website is about.
+          What will you be writing in the blog? What projects will you share?
+          Give visitors a reason to come back.
+        -->
+        <p>
+          This second paragraph is a great place to explain what this website is about —
+          what you will be writing in the blog, what kinds of projects you will be sharing,
+          and what you hope visitors will take away. Give people a reason to stick around.
+        </p>
+      </div>
+
+    </main>
+
+    <!-- ── Footer ── -->
+    <footer>
+      <!-- EDIT: Replace "Your Name" with your name -->
+      <p>© 2026 Your Name</p>
+    </footer>
+
+  </div>
+</body>
+</html>
